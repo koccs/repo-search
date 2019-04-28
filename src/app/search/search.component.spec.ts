@@ -51,14 +51,65 @@ describe("SearchComponent", () => {
     });
   });
 
+  describe("contains an input", () => {
+    let compiled: any;
+
+    beforeEach(() => {
+      compiled = fixture.debugElement.nativeElement;
+    });
+
+    it("and it should be rendered with placeholder 'Search a github repository by name'", () => {
+      expect(compiled.querySelector("input").attributes.placeholder.value).toBe(
+        "Search a github repository by name"
+      );
+    });
+
+    it("and it should be invalid but untouched initially", () => {
+      const classNames = compiled.querySelector("input").className;
+      const isNgInvalid = classNames.indexOf("ng-invalid") > -1;
+      const isNgUntouched = classNames.indexOf("ng-untouched") > -1;
+      expect(isNgInvalid && isNgUntouched).toBe(true);
+    });
+
+    it("and it should be invalid and touched after lost focus without value", () => {
+      const input = compiled.querySelector("input");
+      input.dispatchEvent(new Event("focus"));
+      fixture.detectChanges();
+      input.dispatchEvent(new Event("blur"));
+      fixture.detectChanges();
+
+      fixture.whenStable().then(() => {
+        const classNames = input.className;
+        const isNgInvalid = classNames.indexOf("ng-invalid") > -1;
+        const isNgTouched = classNames.indexOf("ng-touched") > -1;
+        expect(isNgInvalid && isNgTouched).toBe(true);
+      });
+    });
+
+    it("and it should be valid after value is set", () => {
+      component.searchForm.controls["name"].setValue("test");
+      fixture.detectChanges();
+
+      fixture.whenStable().then(() => {
+        const classNames = compiled.querySelector("input").className;
+        const isNgValid = classNames.indexOf("ng-valid") > -1;
+        expect(isNgValid).toBe(true);
+      });
+    });
+  });
+
   describe("contains a button", () => {
+    let compiled: any;
+
+    beforeEach(() => {
+      compiled = fixture.debugElement.nativeElement;
+    });
+
     it("and it should be rendered with text 'search'", () => {
-      const compiled = fixture.debugElement.nativeElement;
       expect(compiled.querySelector("button").textContent).toContain("Search");
     });
 
     it("and it should be disabled until form is invalid", () => {
-      const compiled = fixture.debugElement.nativeElement;
       expect(compiled.querySelector("button").disabled).toBeTruthy();
     });
 
@@ -67,7 +118,6 @@ describe("SearchComponent", () => {
       fixture.detectChanges();
 
       fixture.whenStable().then(() => {
-        const compiled = fixture.debugElement.nativeElement;
         expect(compiled.querySelector("button").disabled).toBeFalsy();
       });
     });
