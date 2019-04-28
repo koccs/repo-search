@@ -7,12 +7,45 @@ html {
   color: $maastricht_blue;
 }
 
+body {
+  margin: 0;
+}
+
 h1 {
   font-weight: 700;
   color: $purple_navy;
+  margin: 20px 0;
 }
 
 a {
   color: $persian_blue;
   cursor: pointer;
+}
+
+input[type="text"] {
+  padding: 6px;
+  border: 1px solid $caput_mortuum;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+button {
+  color: $silver_pink;
+  background: $spicy_mix;
+  border: 1px solid $caput_mortuum;
+  border-radius: 3px;
+  height: 26px;
+  cursor: pointer;
+  min-width: 60px;
+
+  &:hover {
+    &:not(:disabled) {
+      background: $caput_mortuum;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

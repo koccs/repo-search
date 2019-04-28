@@ -1,0 +1,14 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    [formControl]="searchForm.get('name')"
+    placeholder="Search a github repository by name"
+    class="form-control"
+  />
+  <button type="submit" [disabled]="!searchForm.valid" class="fomr-button">
+    Search
+  </button>
+</form>
+<div class="search-result">
+  here comes the result of the search
+</div>

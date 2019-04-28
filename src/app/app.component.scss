@@ -1,3 +1,19 @@
+@import "../assets/styles/screen-sizes";
+
 h1 {
   text-align: center;
+}
+
+.content {
+  width: 100%;
+
+  @include md {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  @include lg {
+    width: 50%;
+    margin: 0 auto;
+  }
 }

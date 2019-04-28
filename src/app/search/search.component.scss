@@ -1,0 +1,49 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/screen-sizes";
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+  width: 100%;
+
+  @include sm {
+    width: 80%;
+    margin: 0 auto;
+    flex-flow: row;
+  }
+
+  @include lg {
+    width: 60%;
+    margin: 0 auto;
+    flex-flow: row;
+  }
+
+  > .form-control {
+    flex: 1 0 100%;
+    margin: 5px 0;
+
+    @include md {
+      flex: 3 1 100%;
+      margin: 0 5px;
+    }
+
+    &.ng-touched.ng-invalid {
+      border: 1px solid red;
+    }
+  }
+
+  > .form-button {
+    flex: 1 1 100%;
+    margin: 5px 0;
+
+    @include md {
+      flex: 1 3 100%;
+      margin: 0 5px;
+    }
+  }
+}
+
+.search-result {
+  margin-top: 3em;
+}
