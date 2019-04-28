@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SearchComponent } from "./search/search.component";
+import { GithubService } from "./services/github.service";
 
 @NgModule({
   declarations: [AppComponent, SearchComponent],
@@ -15,7 +16,7 @@ import { SearchComponent } from "./search/search.component";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

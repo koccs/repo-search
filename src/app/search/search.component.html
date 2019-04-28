@@ -10,5 +10,7 @@
   </button>
 </form>
 <div class="search-result">
-  here comes the result of the search
+  <div *ngFor="let repo of repositories">
+    <span>{{ repo.full_name }}</span>
+  </div>
 </div>
