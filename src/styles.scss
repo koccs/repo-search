@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700");
+@import "./assets/styles/colors";
+
+html {
+  font-family: "Roboto", sans-serif;
+  color: $maastricht_blue;
+}
+
+h1 {
+  font-weight: 700;
+  color: $purple_navy;
+}
+
+a {
+  color: $persian_blue;
+  cursor: pointer;
+}
