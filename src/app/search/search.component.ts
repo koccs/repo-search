@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import { GithubService } from "../services/github.service";
 
 @Component({
   selector: "app-search",
@@ -7,7 +8,10 @@ import { FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./search.component.scss"]
 })
 export class SearchComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: GithubService
+  ) {}
 
   searchForm = this.formBuilder.group({
     name: ["", Validators.required]
