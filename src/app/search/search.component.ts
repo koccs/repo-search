@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import { NgxSpinnerService } from "ngx-spinner";
+
 import { GithubService } from "../services/github.service";
 import { Repository } from "src/models/repository";
 
@@ -11,6 +13,7 @@ import { Repository } from "src/models/repository";
 export class SearchComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService,
     private service: GithubService
   ) {}
 
@@ -22,10 +25,15 @@ export class SearchComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(): void {
+    this.spinner.show();
+
+    this.repositories = null;
+
     this.service
       .searchRepositories(this.searchForm.value.name)
       .subscribe(repositories => {
         this.repositories = repositories;
+        this.spinner.hide();
       });
   }
 }

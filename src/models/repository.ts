@@ -15,7 +15,8 @@ export class Repository {
   open_issues_count: Number;
   score: Number;
 
-  constructor(name: string) {
-    this.name = name;
+  // constructor is only for testing
+  constructor(full_name: string) {
+    this.full_name = full_name;
   }
 }

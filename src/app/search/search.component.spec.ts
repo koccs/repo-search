@@ -1,24 +1,39 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { Component, NO_ERRORS_SCHEMA } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { of } from "rxjs";
 
 import { SearchComponent } from "./search.component";
 import { GithubService } from "../services/github.service";
 import { Repository } from "src/models/repository";
-import { of } from "rxjs";
+import { NgxSpinnerService } from "ngx-spinner";
+
+@Component({ selector: "app-result-item", template: "" })
+class ResultItemStubComponent {}
 
 describe("SearchComponent", () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
   let githubServiceSpy: { searchRepositories: jasmine.Spy };
+  let spinnerServiceSpy: { show: jasmine.Spy; hide: jasmine.Spy };
 
   beforeEach(async(() => {
     githubServiceSpy = jasmine.createSpyObj("GithubService", [
       "searchRepositories"
     ]);
+    spinnerServiceSpy = jasmine.createSpyObj("NgxSpinnerService", [
+      "show",
+      "hide"
+    ]);
+
     TestBed.configureTestingModule({
-      declarations: [SearchComponent],
+      declarations: [SearchComponent, ResultItemStubComponent],
       imports: [ReactiveFormsModule],
-      providers: [{ provide: GithubService, useValue: githubServiceSpy }]
+      providers: [
+        { provide: GithubService, useValue: githubServiceSpy },
+        { provide: NgxSpinnerService, useValue: spinnerServiceSpy }
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -139,6 +154,14 @@ describe("SearchComponent", () => {
     it("then GithubService has been called", () => {
       fixture.whenStable().then(() => {
         expect(githubServiceSpy.searchRepositories.calls.count()).toBe(1);
+      });
+    });
+
+    it("then NgxSpinnerService .show and .hide has been called", () => {
+      expect(spinnerServiceSpy.show.calls.count()).toBe(1);
+
+      fixture.whenStable().then(() => {
+        expect(spinnerServiceSpy.hide.calls.count()).toBe(1);
       });
     });
 
