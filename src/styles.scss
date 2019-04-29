@@ -30,10 +30,11 @@ a {
 }
 
 input[type="text"] {
-  padding: 6px;
+  padding: 4px 6px;
   border: 1px solid $caput_mortuum;
   border-radius: 3px;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 button {
@@ -44,6 +45,7 @@ button {
   height: 26px;
   cursor: pointer;
   min-width: 60px;
+  font-size: 14px;
 
   &:hover {
     &:not(:disabled) {
