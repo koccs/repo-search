@@ -1,6 +1,32 @@
-<div>
-  <a>
-    <h3>{{ repository.full_name }}</h3>
-  </a>
-  <div></div>
+<div class="repository">
+  <div class="header">
+    <a routerLink="{{ '/repository/' + repository.full_name }}">
+      {{ repository.full_name }}
+    </a>
+    <span class="owner">by {{ repository.owner.login }}</span>
+  </div>
+  <!-- <fa-icon icon="star"></fa-icon> -->
+  <div class="body">
+    <div class="description">
+      <div class="language">language: {{ repository.language }}</div>
+      <div>{{ repository.description }}</div>
+      <a class="url" [href]="repository.html_url" target="_blank">
+        {{ repository.html_url }}
+      </a>
+    </div>
+    <div class="stats">
+      <div>
+        {{ repository.stargazers_count | shortNumber }}
+        <fa-icon icon="star"></fa-icon>
+      </div>
+      <div>
+        {{ repository.forks_count | shortNumber }}
+        <fa-icon icon="code-branch"></fa-icon>
+      </div>
+      <div>
+        {{ repository.open_issues_count | shortNumber }}
+        <fa-icon icon="exclamation-circle"></fa-icon>
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,4 +5,9 @@ export class Owner {
   avatar_url: String;
   html_url: String;
   type: String;
+
+  // constructor is only for testing
+  constructor(login: String) {
+    this.login = login;
+  }
 }

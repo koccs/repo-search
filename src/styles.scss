@@ -9,6 +9,7 @@ html {
 
 body {
   margin: 0;
+  background: lighten($pale_cornflower_blue, 13);
 }
 
 h1 {
@@ -21,6 +22,11 @@ h1 {
 a {
   color: $persian_blue;
   cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 input[type="text"] {

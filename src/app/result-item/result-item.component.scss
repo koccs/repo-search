@@ -1,0 +1,53 @@
+@import "../../assets/styles/colors";
+
+.repository {
+  border-bottom: 1px solid $pale_cornflower_blue;
+  padding-bottom: 5px;
+
+  .header {
+    margin: 20px 0 10px;
+
+    a {
+      font-size: 18px;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .owner {
+      font-size: 12px;
+      color: lighten($purple_navy, 10);
+    }
+  }
+
+  .body {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    .description {
+      flex: 2 1 66%;
+
+      .language {
+        font-size: 14px;
+        color: lighten($spicy_mix, 10);
+        margin-bottom: 5px;
+      }
+      .url {
+        display: block;
+        font-size: 14px;
+        color: lighten($french_sky_blue, 10);
+        margin-top: 5px;
+        font-style: italic;
+      }
+    }
+
+    .stats {
+      flex: 1 2 33%;
+      text-align: right;
+
+      > div {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
