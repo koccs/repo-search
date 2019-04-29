@@ -16,16 +16,22 @@
     </div>
     <div class="stats">
       <div>
-        {{ repository.stargazers_count | shortNumber }}
-        <fa-icon icon="star"></fa-icon>
+        <span title="Stargazers">
+          {{ repository.stargazers_count | shortNumber }}
+          <fa-icon icon="star"></fa-icon>
+        </span>
       </div>
       <div>
-        {{ repository.forks_count | shortNumber }}
-        <fa-icon icon="code-branch"></fa-icon>
+        <span title="Forks">
+          {{ repository.forks_count | shortNumber }}
+          <fa-icon icon="code-branch"></fa-icon>
+        </span>
       </div>
       <div>
-        {{ repository.open_issues_count | shortNumber }}
-        <fa-icon icon="exclamation-circle"></fa-icon>
+        <span title="Open issues">
+          {{ repository.open_issues_count | shortNumber }}
+          <fa-icon icon="exclamation-circle"></fa-icon>
+        </span>
       </div>
     </div>
   </div>

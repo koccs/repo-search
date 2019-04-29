@@ -25,24 +25,26 @@
     padding: 0 10px;
 
     .description {
-      flex: 2 1 66%;
+      flex: 1 1 75%;
 
       .language {
         font-size: 14px;
         color: lighten($spicy_mix, 10);
         margin-bottom: 5px;
       }
+
       .url {
-        display: block;
+        display: inline-block;
         font-size: 14px;
         color: lighten($french_sky_blue, 10);
         margin-top: 5px;
         font-style: italic;
+        word-wrap: break-word;
       }
     }
 
     .stats {
-      flex: 1 2 33%;
+      flex: 1 1 25%;
       text-align: right;
 
       > div {
