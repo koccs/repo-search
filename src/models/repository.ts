@@ -1,19 +1,20 @@
 import { Owner } from "./owner";
 
 export class Repository {
-  id: Number;
-  name: String;
-  full_name: String;
+  id: number;
+  name: string;
+  full_name: string;
   private: boolean;
   owner: Owner;
-  html_url: String;
-  description: String;
-  language: String;
-  stargazers_count: Number;
-  watchers_count: Number;
-  forks_count: Number;
-  open_issues_count: Number;
-  score: Number;
+  html_url: string;
+  description: string;
+  language: string;
+  stargazers_count: number;
+  watchers_count: number;
+  forks_count: number;
+  open_issues_count: number;
+  score: number;
+  localUrl: string;
 
   // constructor is only for testing
   constructor(full_name: string) {

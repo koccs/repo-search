@@ -1,13 +1,13 @@
 export class Owner {
-  login: String;
-  id: Number;
-  url: String;
-  avatar_url: String;
-  html_url: String;
-  type: String;
+  login: string;
+  id: number;
+  url: string;
+  avatar_url: string;
+  html_url: string;
+  type: string;
 
   // constructor is only for testing
-  constructor(login: String) {
+  constructor(login: string) {
     this.login = login;
   }
 }
