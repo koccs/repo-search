@@ -57,8 +57,8 @@ describe("GithubService", () => {
     it("should return Observable<Respository> with expected result", () => {
       const expectedResult = new Repository("dummy repo");
 
-      service.getRepository("user/dum").subscribe(repos => {
-        expect(repos).toEqual(expectedResult);
+      service.getRepository("user/dum").subscribe(repo => {
+        expect(repo).toEqual(expectedResult);
       });
 
       const req = httpMock.expectOne(`${service.baseUrl}repos/user/dum`);
@@ -73,9 +73,9 @@ describe("GithubService", () => {
       expectedResult.push(new Issue("issue example"));
       const searchResult = new SearchResult<Issue>(1, expectedResult);
 
-      service.getIssues("dum").subscribe(repos => {
-        expect(repos.length).toBe(1);
-        expect(repos).toEqual(expectedResult);
+      service.getIssues("dum").subscribe(issues => {
+        expect(issues.length).toBe(1);
+        expect(issues).toEqual(expectedResult);
       });
 
       const req = httpMock.expectOne(
