@@ -1,4 +1,4 @@
-export class Owner {
+export class User {
   login: string;
   id: number;
   url: string;

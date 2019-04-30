@@ -1,11 +1,11 @@
-import { Owner } from "./owner";
+import { User } from "./user";
 
 export class Repository {
   id: number;
   name: string;
   full_name: string;
   private: boolean;
-  owner: Owner;
+  owner: User;
   html_url: string;
   description: string;
   language: string;

@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 import { Repository } from "../../models/repository";
 import { ResultItemComponent } from "./result-item.component";
-import { Owner } from "../../models/owner";
+import { User } from "../../models/user";
 
 @Component({ selector: "fa-icon", template: "" })
 class FaIconStubComponent {}
@@ -31,7 +31,7 @@ describe("ResultItemComponent", () => {
     fixture = TestBed.createComponent(ResultItemComponent);
     component = fixture.componentInstance;
     component.repository = new Repository("test/repo");
-    component.repository.owner = new Owner("test user");
+    component.repository.owner = new User("test user");
     fixture.detectChanges();
   });
 
