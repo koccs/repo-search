@@ -89,7 +89,6 @@ describe("SearchComponent", () => {
     it("and it should be invalid and touched after lost focus without value", () => {
       const input = compiled.querySelector("input");
       input.dispatchEvent(new Event("focus"));
-      fixture.detectChanges();
       input.dispatchEvent(new Event("blur"));
       fixture.detectChanges();
 
