@@ -13,10 +13,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { AppRoutingModule } from "./app-routing.module";
+import { GithubService } from "./services/github.service";
 import { AppComponent } from "./app.component";
 import { SearchComponent } from "./search/search.component";
-import { GithubService } from "./services/github.service";
 import { ResultItemComponent } from "./result-item/result-item.component";
+import { DetailsComponent } from "./details/details.component";
 import { ShortNumberPipe } from "./short-number.pipe";
 
 library.add(faStar, faCodeBranch, faExclamationCircle);
@@ -26,6 +27,7 @@ library.add(faStar, faCodeBranch, faExclamationCircle);
     AppComponent,
     SearchComponent,
     ResultItemComponent,
+    DetailsComponent,
     ShortNumberPipe
   ],
   imports: [
