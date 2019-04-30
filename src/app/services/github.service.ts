@@ -11,19 +11,25 @@ import { Issue } from "../../models/issue";
 export class GithubService {
   constructor(private http: HttpClient) {}
 
-  readonly baseUrl = "https://api.github.com/search/";
+  readonly baseUrl = "https://api.github.com/";
 
   searchRepositories(name: string): Observable<Repository[]> {
     const params = new HttpParams().set("q", name);
     return this.http
-      .get(`${this.baseUrl}repositories`, { params })
+      .get(`${this.baseUrl}search/repositories`, { params })
       .map((response: SearchResult<Repository>) => response.items);
+  }
+
+  getRepository(name: string): Observable<Repository> {
+    return this.http
+      .get(`${this.baseUrl}repos/${name}`)
+      .map((response: Repository) => response);
   }
 
   getIssues(repositoryName: string): Observable<Issue[]> {
     const params = new HttpParams().set("q", `repo:${repositoryName}`);
     return this.http
-      .get(`${this.baseUrl}issues`, { params })
+      .get(`${this.baseUrl}search/issues`, { params })
       .map((response: SearchResult<Issue>) => response.items);
   }
 }

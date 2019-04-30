@@ -3,11 +3,19 @@ import { ActivatedRoute } from "@angular/router";
 import { ActivatedRouteStub } from "../../testing/activated-route-stub";
 
 import { DetailsComponent } from "./details.component";
+import { Issue } from "src/models/issue";
+import { Repository } from "src/models/repository";
 
 describe("DetailsComponent", () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
-  const activatedRoute = new ActivatedRouteStub();
+  const activatedRoute = new ActivatedRouteStub({
+    details: {
+      repository: new Repository("dummy repo"),
+      issues: [new Issue("issue 1"), new Issue("issue 2")]
+    }
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DetailsComponent],
@@ -16,7 +24,6 @@ describe("DetailsComponent", () => {
   }));
 
   beforeEach(() => {
-    activatedRoute.setParamMap({ fullName: "test%2Frepo" });
     fixture = TestBed.createComponent(DetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -26,7 +33,11 @@ describe("DetailsComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("propertyName should be set from route", () => {
-    expect(component.repositoryName).toBe("test/repo");
+  it("issues should be set from resolver", () => {
+    expect(component.issues.length).toBe(2);
+  });
+
+  it("repository should be set from resolver", () => {
+    expect(component.repository.full_name).toBe("dummy repo");
   });
 });

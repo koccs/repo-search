@@ -44,10 +44,26 @@ describe("GithubService", () => {
         expect(repos).toEqual(expectedResult);
       });
 
-      const req = httpMock.expectOne(`${service.baseUrl}repositories?q=dum`);
+      const req = httpMock.expectOne(
+        `${service.baseUrl}search/repositories?q=dum`
+      );
       expect(req.request.method).toBe("GET");
-      expect(req.request.url).toBe(`${service.baseUrl}repositories`);
+      expect(req.request.url).toBe(`${service.baseUrl}search/repositories`);
       req.flush(searchResult);
+    });
+  });
+
+  describe("getRepository", () => {
+    it("should return Observable<Respository> with expected result", () => {
+      const expectedResult = new Repository("dummy repo");
+
+      service.getRepository("user/dum").subscribe(repos => {
+        expect(repos).toEqual(expectedResult);
+      });
+
+      const req = httpMock.expectOne(`${service.baseUrl}repos/user/dum`);
+      expect(req.request.method).toBe("GET");
+      req.flush(expectedResult);
     });
   });
 
@@ -62,9 +78,11 @@ describe("GithubService", () => {
         expect(repos).toEqual(expectedResult);
       });
 
-      const req = httpMock.expectOne(`${service.baseUrl}issues?q=repo:dum`);
+      const req = httpMock.expectOne(
+        `${service.baseUrl}search/issues?q=repo:dum`
+      );
       expect(req.request.method).toBe("GET");
-      expect(req.request.url).toBe(`${service.baseUrl}issues`);
+      expect(req.request.url).toBe(`${service.baseUrl}search/issues`);
       req.flush(searchResult);
     });
   });

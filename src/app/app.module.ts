@@ -14,6 +14,7 @@ import {
 
 import { AppRoutingModule } from "./app-routing.module";
 import { GithubService } from "./services/github.service";
+import { DetailsResolverService } from "./services/details-resolver.service";
 import { AppComponent } from "./app.component";
 import { SearchComponent } from "./search/search.component";
 import { ResultItemComponent } from "./result-item/result-item.component";
@@ -38,7 +39,7 @@ library.add(faStar, faCodeBranch, faExclamationCircle);
     NgxSpinnerModule,
     FontAwesomeModule
   ],
-  providers: [GithubService],
+  providers: [GithubService, DetailsResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
