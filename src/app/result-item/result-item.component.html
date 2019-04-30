@@ -1,6 +1,6 @@
 <div class="repository">
   <div class="header">
-    <a routerLink="{{ '/repository/' + repository.full_name }}">
+    <a [routerLink]="repository.localUrl">
       {{ repository.full_name }}
     </a>
     <span class="owner">by {{ repository.owner.login }}</span>

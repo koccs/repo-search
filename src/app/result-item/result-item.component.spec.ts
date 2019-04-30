@@ -30,12 +30,16 @@ describe("ResultItemComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultItemComponent);
     component = fixture.componentInstance;
-    component.repository = new Repository("test repo");
+    component.repository = new Repository("test/repo");
     component.repository.owner = new Owner("test user");
     fixture.detectChanges();
   });
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("localUrl is set on repository", () => {
+    expect(component.repository.localUrl).toBe("/details/test%2Frepo");
   });
 });

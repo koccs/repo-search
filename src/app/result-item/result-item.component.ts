@@ -11,5 +11,9 @@ export class ResultItemComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.repository.localUrl = `/details/${encodeURIComponent(
+      this.repository.full_name
+    )}`;
+  }
 }
