@@ -5,6 +5,7 @@ import "rxjs/Rx";
 
 import { Repository } from "../../models/repository";
 import { SearchResult } from "../../models/searchResult";
+import { Issue } from "../../models/issue";
 
 @Injectable()
 export class GithubService {
@@ -17,5 +18,12 @@ export class GithubService {
     return this.http
       .get(`${this.baseUrl}repositories`, { params })
       .map((response: SearchResult<Repository>) => response.items);
+  }
+
+  getIssues(repositoryName: string): Observable<Issue[]> {
+    const params = new HttpParams().set("q", `repo:${repositoryName}`);
+    return this.http
+      .get(`${this.baseUrl}issues`, { params })
+      .map((response: SearchResult<Issue>) => response.items);
   }
 }

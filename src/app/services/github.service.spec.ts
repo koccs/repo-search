@@ -7,6 +7,7 @@ import {
 import { GithubService } from "./github.service";
 import { SearchResult } from "src/models/searchResult";
 import { Repository } from "src/models/repository";
+import { Issue } from "src/models/issue";
 
 describe("GithubService", () => {
   let injector: TestBed;
@@ -46,6 +47,24 @@ describe("GithubService", () => {
       const req = httpMock.expectOne(`${service.baseUrl}repositories?q=dum`);
       expect(req.request.method).toBe("GET");
       expect(req.request.url).toBe(`${service.baseUrl}repositories`);
+      req.flush(searchResult);
+    });
+  });
+
+  describe("getIssues", () => {
+    it("should return Observable<Issue[]> with expected result", () => {
+      const expectedResult = new Array<Issue>();
+      expectedResult.push(new Issue("issue example"));
+      const searchResult = new SearchResult<Issue>(1, expectedResult);
+
+      service.getIssues("dum").subscribe(repos => {
+        expect(repos.length).toBe(1);
+        expect(repos).toEqual(expectedResult);
+      });
+
+      const req = httpMock.expectOne(`${service.baseUrl}issues?q=repo:dum`);
+      expect(req.request.method).toBe("GET");
+      expect(req.request.url).toBe(`${service.baseUrl}issues`);
       req.flush(searchResult);
     });
   });
