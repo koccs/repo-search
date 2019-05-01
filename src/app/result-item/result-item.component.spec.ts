@@ -35,7 +35,7 @@ describe("ResultItemComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it("should be created", () => {
     expect(component).toBeTruthy();
   });
 
@@ -67,12 +67,12 @@ describe("ResultItemComponent", () => {
       );
     });
 
-    it("number of stargazers with '123'", () => {
+    it("number of stargazers with '7890'", () => {
       const element = compiled.querySelector("#stargazers");
       expect(element.textContent).toContain("7890");
     });
 
-    it("number of forks with '123'", () => {
+    it("number of forks with '456'", () => {
       const element = compiled.querySelector("#forks");
       expect(element.textContent).toContain("456");
     });
