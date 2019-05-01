@@ -20,11 +20,12 @@ import {
 import { AppRoutingModule } from "./app-routing.module";
 import { GithubService } from "./services/github.service";
 import { DetailsResolverService } from "./services/details-resolver.service";
+import { ShortNumberPipe } from "./short-number.pipe";
 import { AppComponent } from "./app.component";
 import { SearchComponent } from "./search/search.component";
 import { ResultItemComponent } from "./result-item/result-item.component";
 import { DetailsComponent } from "./details/details.component";
-import { ShortNumberPipe } from "./short-number.pipe";
+import { IssueCardComponent } from "./issue-card/issue-card.component";
 
 library.add(
   faStar,
@@ -43,7 +44,8 @@ library.add(
     SearchComponent,
     ResultItemComponent,
     DetailsComponent,
-    ShortNumberPipe
+    ShortNumberPipe,
+    IssueCardComponent
   ],
   imports: [
     BrowserModule,

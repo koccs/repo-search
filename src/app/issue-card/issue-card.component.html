@@ -1,0 +1,26 @@
+<div class="issue-card">
+  <div class="title">
+    <a [href]="issue.html_url" target="_blank">{{ issue.title }}</a>
+    <div class="user">by {{ issue.user.login }}</div>
+    <fa-icon
+      class="icon"
+      [title]="issue.state"
+      [icon]="issue.state === 'closed' ? 'check-circle' : 'times-circle'"
+    ></fa-icon>
+  </div>
+  <div class="issue-details">
+    <div class="stats">
+      <div class="date">
+        <fa-icon icon="calendar"></fa-icon>
+        {{ issue.updated_at | date: "medium" }}
+      </div>
+      <div class="comments">
+        <fa-icon icon="comments"></fa-icon>
+        {{ issue.comments }}
+      </div>
+    </div>
+    <div class="description">
+      {{ issue.body }}
+    </div>
+  </div>
+</div>
