@@ -17,6 +17,10 @@ application.
 application.
 * Create a github repository for the application so we can pull it down and test it.
 
+## Download node packages
+
+Run `npm i` to download node packages which are necessary to run the applications.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
