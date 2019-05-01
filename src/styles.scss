@@ -69,4 +69,10 @@ fa-icon {
   &[icon="code-branch"] {
     color: $kelly_green;
   }
+  &[ng-reflect-icon-prop="check-circle"] {
+    color: $kelly_green;
+  }
+  &[ng-reflect-icon-prop="times-circle"] {
+    color: $heidelberg_red;
+  }
 }

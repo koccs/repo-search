@@ -27,9 +27,8 @@ export class GithubService {
   }
 
   getIssues(repositoryName: string): Observable<Issue[]> {
-    const params = new HttpParams().set("q", `repo:${repositoryName}`);
     return this.http
-      .get(`${this.baseUrl}search/issues`, { params })
-      .map((response: SearchResult<Issue>) => response.items);
+      .get(`${this.baseUrl}repos/${repositoryName}/issues`)
+      .map((response: Issue[]) => response);
   }
 }

@@ -33,6 +33,10 @@
   }
 
   .body {
+    h4 {
+      margin: 20px 0 5px 0;
+    }
+
     .issues {
       display: flex;
       flex-wrap: wrap;
@@ -51,10 +55,18 @@
         .title {
           font-size: 18px;
           margin-bottom: 10px;
+          padding-right: 25px;
+          position: relative;
 
           .user {
             font-size: 12px;
             color: lighten($purple_navy, 10);
+          }
+
+          .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
           }
         }
 

@@ -71,19 +71,16 @@ describe("GithubService", () => {
     it("should return Observable<Issue[]> with expected result", () => {
       const expectedResult = new Array<Issue>();
       expectedResult.push(new Issue("issue example"));
-      const searchResult = new SearchResult<Issue>(1, expectedResult);
 
       service.getIssues("dum").subscribe(issues => {
         expect(issues.length).toBe(1);
         expect(issues).toEqual(expectedResult);
       });
 
-      const req = httpMock.expectOne(
-        `${service.baseUrl}search/issues?q=repo:dum`
-      );
+      const req = httpMock.expectOne(`${service.baseUrl}repos/dum/issues`);
       expect(req.request.method).toBe("GET");
-      expect(req.request.url).toBe(`${service.baseUrl}search/issues`);
-      req.flush(searchResult);
+      expect(req.request.url).toBe(`${service.baseUrl}repos/dum/issues`);
+      req.flush(expectedResult);
     });
   });
 });

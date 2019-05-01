@@ -12,7 +12,9 @@ import {
   faExclamationCircle,
   faChevronLeft,
   faCalendar,
-  faComments
+  faComments,
+  faCheckCircle,
+  faTimesCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -30,7 +32,9 @@ library.add(
   faExclamationCircle,
   faChevronLeft,
   faCalendar,
-  faComments
+  faComments,
+  faCheckCircle,
+  faTimesCircle
 );
 
 @NgModule({
