@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/screen-sizes";
 
 .back {
   color: $spicy_mix;
@@ -43,14 +44,19 @@
       width: 100%;
 
       .issue {
-        flex: 2 0 30%;
-        border: 1px solid black;
+        flex: 1 1 98%;
+        border: 1px solid lighten(black, 50);
         border-radius: 3px;
         background: #fff;
-        margin: 10px;
+        margin: 1%;
         padding: 10px 10px 0;
         position: relative;
         box-shadow: 0 0 5px lighten(black, 50);
+        box-sizing: border-box;
+
+        @include sm {
+          flex: 1 1 48%;
+        }
 
         .title {
           font-size: 18px;
