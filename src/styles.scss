@@ -58,3 +58,15 @@ button {
     cursor: not-allowed;
   }
 }
+
+fa-icon {
+  &[icon="star"] {
+    color: $sandy_brown;
+  }
+  &[icon="exclamation-circle"] {
+    color: $heidelberg_red;
+  }
+  &[icon="code-branch"] {
+    color: $kelly_green;
+  }
+}

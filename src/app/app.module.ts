@@ -9,7 +9,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faStar,
   faCodeBranch,
-  faExclamationCircle
+  faExclamationCircle,
+  faChevronLeft,
+  faCalendar,
+  faComments
 } from "@fortawesome/free-solid-svg-icons";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -21,7 +24,14 @@ import { ResultItemComponent } from "./result-item/result-item.component";
 import { DetailsComponent } from "./details/details.component";
 import { ShortNumberPipe } from "./short-number.pipe";
 
-library.add(faStar, faCodeBranch, faExclamationCircle);
+library.add(
+  faStar,
+  faCodeBranch,
+  faExclamationCircle,
+  faChevronLeft,
+  faCalendar,
+  faComments
+);
 
 @NgModule({
   declarations: [

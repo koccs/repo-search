@@ -1,10 +1,53 @@
+<a routerLink="" class="back">
+  <fa-icon icon="chevron-left"></fa-icon>
+  Back
+</a>
 <div class="details">
   <div class="header">
-    {{ repository.full_name }}
+    <div class="title">
+      <a [href]="repository.html_url" target="_blank">
+        {{ repository.full_name }}
+      </a>
+      <span class="owner">by {{ repository.owner.login }}</span>
+    </div>
+    <div class="stats">
+      <span title="Stargazers">
+        {{ repository.stargazers_count | shortNumber }}
+        <fa-icon icon="star"></fa-icon>
+      </span>
+      <span title="Forks">
+        {{ repository.forks_count | shortNumber }}
+        <fa-icon icon="code-branch"></fa-icon>
+      </span>
+    </div>
   </div>
   <div class="body">
+    <h4>
+      There are {{ repository.open_issues_count | shortNumber }} open issues,
+      most recent ones:
+    </h4>
     <div class="issues">
-      <div class="issue" *ngFor="let issue of issues">{{ issue.title }}</div>
+      <div class="issue" *ngFor="let issue of issues">
+        <div class="title">
+          <a [href]="issue.html_url" target="_blank">{{ issue.title }}</a>
+          <div class="user">by {{ issue.user.login }}</div>
+        </div>
+        <div class="issue-details">
+          <div class="stats">
+            <div class="date">
+              <fa-icon icon="calendar"></fa-icon>
+              {{ issue.updated_at | date: "medium" }}
+            </div>
+            <div class="comments">
+              <fa-icon icon="comments"></fa-icon>
+              {{ issue.comments }}
+            </div>
+          </div>
+          <div class="description">
+            {{ issue.body }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
